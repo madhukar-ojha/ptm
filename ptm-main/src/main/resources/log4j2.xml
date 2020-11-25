@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+	<Appenders>
+		<Console name="LogToConsole" target="SYSTEM_OUT">
+			<PatternLayout
+				pattern="%d{dd MMM yyyy HH:mm:ss,SSS} [%t] %-5level %logger{36} - %msg%n" />
+		</Console>
+	</Appenders>
+	<Loggers>
+		<logger name="org.hibernate.SQL" level="DEBUG"
+			additivity="false">
+			<appender-ref ref="LogToConsole" />
+		</logger>
+		<logger name="org.hibernate.type" level="TRACE"
+			additivity="false">
+			<appender-ref ref="LogToConsole" />
+		</logger>
+		<logger name="com.ptm.main" level="info" additivity="false">
+			<appender-ref ref="LogToConsole" />
+		</logger>
+		<Root level="debug">
+			<AppenderRef ref="LogToConsole" />
+		</Root>
+	</Loggers>
+</Configuration>

@@ -1,0 +1,24 @@
+server:
+  port: 7070
+  servlet:
+    context-path: /ptm-main
+
+spring:
+  application:
+    name: ptm-main
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 300000
+        readTimeout: 300000
+        
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+  instance:
+    leaseRenewalIntervalInSeconds: 10
+    metadataMap:
+      instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${server.port}}}

@@ -9,45 +9,34 @@
 		<version>2.2.11.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.web.ptm.login</groupId>
+	<groupId>com.ptm</groupId>
 	<artifactId>ptm-login</artifactId>
 	<version>1.0</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>ptm-login</name>
-	<description>PTM Login Rest Project</description>
+	<description>Ptm Login project for Spring Boot</description>
 
 	<properties>
 		<java.version>11</java.version>
+		<spring-cloud.version>Hoxton.SR9</spring-cloud.version>
+		<start-class>com.ptm.login.PtmLoginApplication</start-class>
 	</properties>
 
 	<dependencies>
+		<dependency>
+			<groupId>com.ptm</groupId>
+			<artifactId>ptm-common</artifactId>
+			<version>1.0</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web-services</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 			<scope>runtime</scope>
 			<optional>true</optional>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-configuration-processor</artifactId>
-			<optional>true</optional>
-		</dependency>
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<scope>runtime</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
@@ -71,7 +60,6 @@
 			</exclusions>
 		</dependency>
 	</dependencies>
-
 	<build>
 		<plugins>
 			<plugin>
