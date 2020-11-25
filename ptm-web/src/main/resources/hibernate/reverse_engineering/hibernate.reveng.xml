@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.org/dtd/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+<type-mapping>
+	<sql-type jdbc-type="INTEGER" hibernate-type="int">
+	</sql-type>
+	<sql-type jdbc-type="DATE" hibernate-type="LocalDate"></sql-type>
+	<sql-type jdbc-type="TIMESTAMP" hibernate-type="LocalDateTime">
+	</sql-type>
+</type-mapping>
+
+<table-filter match-schema="ptm_dev" match-name=".*"></table-filter>
+	<table-filter match-name="department" match-catalog="ptm_dev"></table-filter>
+	<table-filter match-name="designation" match-catalog="ptm_dev"></table-filter>
+	<table-filter match-name="employee" match-catalog="ptm_dev"></table-filter>
+	<table-filter match-name="india_state" match-catalog="ptm_dev"></table-filter>
+	<table-filter match-name="menu" match-catalog="ptm_dev"></table-filter>
+	<table-filter match-name="role" match-catalog="ptm_dev"></table-filter>
+	<table-filter match-name="sub_menu" match-catalog="ptm_dev"></table-filter>
+	<table-filter match-name="user_role" match-catalog="ptm_dev"></table-filter>
+</hibernate-reverse-engineering>
