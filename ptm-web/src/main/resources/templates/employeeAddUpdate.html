@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>PTM</title>
+<script type="text/javascript" th:src="@{/styles/js/jquery-3.5.0.js}"></script>
+<script type="text/javascript" th:src="@{/styles/js/employee-add-update.js}"></script>
+</head>
+<body>
+	<form th:action="@{#}" th:object="${employeeVO}" method="POST">
+		<input type="hidden" th:field="*{action}" />
+		<table style="text-align: left;background-color:lightblue;font-family:verdana;font-size:18px;margin-left: auto;margin-right: auto;">
+		
+			<!-- This part will be visible when action is update : start -->
+				<tr th:if="${employeeVO.id eq 0}">
+					<td><span>Employee Id* : </span></td>
+					<td><span>[[*{id}]]</span></td>
+				</tr>
+			<!-- This part will be visible when action is update : end -->
+			
+			<tr>
+				<td><label for="firstName">First Name* : </label></td>
+				<td><input type="text" th:field="*{firstName}" required="required"/></td>
+			</tr>
+			<tr>
+				<td><label for="middleName">Middle Name : </label></td>
+				<td><input type="text" th:field="*{middleName}"/></td>
+			</tr>
+			<tr>
+				<td><label for="lastName">Last Name* : </label></td>
+				<td><input type="text" th:field="*{lastName}" required="required"/></td>
+			</tr>
+			<tr>
+				<td><label for="nickName">Nick Name : </label></td>
+				<td><input type="text" th:field="*{nickName}"/></td>
+			</tr>
+			<tr>
+				<td>Gender :</td>
+				<td><label for="nickName">Male: </label>
+				<input type="radio" th:field="*{gender}" th:value="male" />
+				<label for="nickName">Female: </label>
+				<input type="radio" th:field="*{gender}" th:value="female" /></td>
+			</tr>
+			<tr>
+				<td><label for="department">Department* :</label></td>
+				<td><select th:field="*{department}">
+					<option  value="-1">--Select--</option>
+					<option th:each="dept : *{departmentMap}" th:value="${dept.key}" th:text="${dept.value}" />
+					</select>
+				 </td>
+			</tr>
+			<!--/*-->
+			<tr>
+			<td><label for="role">Role* :</label></td>
+			<td><select th:field="*{role}">
+					<option th:each="ro : *{roleMap}" th:value="${ro.key}"	th:text="${ro.value}" />
+				</select></td>
+				
+			</tr>
+			<!--*/-->
+			<tr>
+				<td><label for="dateOfBirth">Date of Bitrh* : </label></td>
+				<td><input type="date" th:field="*{dateOfBirth}" required="required"/></td>
+			</tr>
+			<tr>
+				<td><label for="fatherName">Father name* : </label></td>
+				<td><input type="text" th:field="*{fatherName}" required="required"/></td>
+			</tr>
+			<tr>
+				<td><label for="motherName">Mother Name* : </label></td>
+				<td><input type="text" th:field="*{motherName}" required="required"/></td>
+			</tr>
+			<tr>
+				<td><label for="phone">Phone : </label></td>
+				<td><input type="text" th:field="*{phone}" required="required"/></td>
+			</tr>
+			<tr>
+				<td><label for="mobile">Mobile* : </label></td>
+				<td><input type="text" th:field="*{mobile}" required="required"/></td>
+			</tr>
+			<tr>
+				<td><label for="email">Enter your email:</label></td>
+				<td><input type="text" th:field="*{email}" required="required"/></td>
+			</tr>
+			<tr>
+				<td><label for="address">Address* : </label></td>
+					<td><input type="text" th:field="*{address}" required="required"/></td>
+			</tr>
+			<tr>
+				<td><label for="pincode">Pin code* : </label></td>
+				<td><input type="number" th:field="*{pincode}" maxlength="6" required="required"/></td>
+			</tr>
+			<tr>
+				<td><label for="state">State* : </label></td>
+				<td><select th:field="*{state}">
+				<option  value="-1">--Select--</option>
+				<option th:each="st : *{stateMap}" th:value="${st.key}" th:text="${st.value}" />
+				</select></td>
+			</tr>
+			
+			<!-- This part will be visible when action is update : start -->
+			<tr  th:if="${employeeVO.id gt 0}">
+				<td>Employmenet Status: </td>
+				<td><input type="radio" th:field="*{enabled}" th:value="true" />
+				<label for="enabled">Enable </label>
+				<input type="radio" th:field="*{enabled}" th:value="false" />
+				<label for="enabled">Disabled </label></td>
+			</tr>
+			<!-- This part will be visible when action is update : end -->
+			
+			<tr>
+				<td><input type="submit" th:value="${action.commandName}" th:formaction="@{${action.actionType}}"/></td>
+				<td><input type="reset" value="Reset"/></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
