@@ -7,8 +7,10 @@ Steps to install and run...
 5. Verify all projects are running. 
     http://localhost:8761/
     
-    Under Applications menu
+    Under Applications menu:
+    
     PTM-LOGIN	n/a (1)	(1)	UP (1) - <host name>:ptm-login:7071
+    
     PTM-MAIN	n/a (1)	(1)	UP (1) - <<host name>>:ptm-main:7070
-
+    
 6. Hit http://localhost:7070/ptm-main/
