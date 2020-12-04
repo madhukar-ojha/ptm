@@ -11,6 +11,6 @@ Steps to install and run...
     
     PTM-LOGIN	n/a (1)	(1)	UP (1) - <host name>:ptm-login:7071
     
-    PTM-MAIN	n/a (1)	(1)	UP (1) - <<host name>>:ptm-main:7070
+    PTM-MAIN	n/a (1)	(1)	UP (1) - <host name>:ptm-main:7070
     
 6. Hit http://localhost:7070/ptm-main/
