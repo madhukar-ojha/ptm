@@ -1,6 +1,5 @@
 package com.ptm.main.listener;
 
-import javax.servlet.annotation.WebListener;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -8,9 +7,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
-/*import com.ptm.web.common.pojo.MainMenu;
-import com.ptm.web.common.pojo.SubMenuAndCommand;
-import com.ptm.web.common.pojo.SubMenuAndCommandCSS;*/
 @Component
 public class RequestInterceptor implements HandlerInterceptor {
 	@Override

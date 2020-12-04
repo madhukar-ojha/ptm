@@ -11,7 +11,7 @@ import com.ptm.common.vo.LoginVO;
 import com.ptm.common.vo.UserDetailVO;
 
 @Component
-@FeignClient(name = "ptm-login", path = "/ptm-login") 
+@FeignClient(name = "ptm-login", path = "/ptm-login")
 public interface LoginClient { 
 	
 	@PostMapping(value = "/login")
