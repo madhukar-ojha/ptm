@@ -5,6 +5,7 @@ Steps to install and run...
 3. Start project 'ptm-eureks-server' as sprong boot project
 4. Start project 'ptm-login' and 'ptm-main' as sprong boot project. 'ptm-common' is just common utility to embed. Don't run it.
 5. Verify all projects are running. 
+
     http://localhost:8761/
     
     Under Applications menu:
