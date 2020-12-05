@@ -26,6 +26,4 @@ public class LoginController {
 	public String go() {
 		return "Fuck u madhu..............";
 	}
-	
-	
 }

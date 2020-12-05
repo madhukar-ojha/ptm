@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.org/dtd/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+<type-mapping>
+	<sql-type jdbc-type="DATE" hibernate-type="java.time.LocalDate">
+	</sql-type>
+	<sql-type jdbc-type="TIMESTAMP" hibernate-type="java.time.LocalDateTime">
+	</sql-type>
+	<sql-type jdbc-type="INTEGER" hibernate-type="int">
+	</sql-type>
+	<sql-type jdbc-type="TINYINT" hibernate-type="boolean">
+	</sql-type>
+</type-mapping>
+<table-filter match-catalog="ptmdb" match-name="action"/>
+  <table-filter match-catalog="ptmdb" match-name="address"/>
+  <table-filter match-catalog="ptmdb" match-name="contact_detail"/>
+  <table-filter match-catalog="ptmdb" match-name="department"/>
+  <table-filter match-catalog="ptmdb" match-name="department_designation"/>
+  <table-filter match-catalog="ptmdb" match-name="designation"/>
+  <table-filter match-catalog="ptmdb" match-name="employee"/>
+  <table-filter match-catalog="ptmdb" match-name="india_state"/>
+  <table-filter match-catalog="ptmdb" match-name="menu"/>
+  <table-filter match-catalog="ptmdb" match-name="menu_submenu_action"/>
+  <table-filter match-catalog="ptmdb" match-name="role"/>
+  <table-filter match-catalog="ptmdb" match-name="submenu"/>
+  <table-filter match-catalog="ptmdb" match-name="submenu_action"/>
+</hibernate-reverse-engineering>
