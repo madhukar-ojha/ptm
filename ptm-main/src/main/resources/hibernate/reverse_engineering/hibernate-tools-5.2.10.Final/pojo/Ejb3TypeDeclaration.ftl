@@ -2,6 +2,7 @@
 <#if pojo.isComponent()>
 @${pojo.importType("javax.persistence.Embeddable")}
 <#else>
+@${pojo.importType("lombok.Data")}
 @${pojo.importType("javax.persistence.Entity")}
 @${pojo.importType("javax.persistence.Table")}(name="${clazz.table.name}"
 <#if clazz.table.schema?exists>
