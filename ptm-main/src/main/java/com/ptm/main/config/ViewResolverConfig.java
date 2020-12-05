@@ -41,7 +41,7 @@ public class ViewResolverConfig implements WebMvcConfigurer {
 	@Bean
 	public MessageSource messageSource() {
 		ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
-		messageSource.setBasename("classpath:spring/application_en_US");
+		messageSource.setBasename("classpath:application_en_US");
 		messageSource.setDefaultEncoding("UTF-8");
 		return messageSource;
 	}

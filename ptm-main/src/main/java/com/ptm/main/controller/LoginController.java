@@ -37,6 +37,7 @@ public class LoginController {
 	@PostMapping(value = "/login")
 	public String login(@Valid LoginVO loginVO, BindingResult bindingResult, ModelMap modelMap,
 			HttpServletRequest request) {
+	//	return "client";
 		return loginReqProcessor.login(loginVO, bindingResult, modelMap, request);
 	}
 

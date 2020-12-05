@@ -35,35 +35,39 @@ public class SpringHibernateConfig {
 	@Autowired private Environment environment;
 
 
-	@Bean
+	@Bean()
 	public LocalSessionFactoryBean sessionFactory() {
 		LocalSessionFactoryBean factoryBean = new LocalSessionFactoryBean();
 		factoryBean.setPackagesToScan(HIBERNATE_ENTITY_DIR);
 		factoryBean.setHibernateProperties(getHibernateProperties());
-		setDataSourceEnv(factoryBean);
+		factoryBean.setDataSource(dataSource());
+		
+//		setDataSourceEnv(factoryBean);
 		return factoryBean;
 	}
 
-	@Profile("dev")
 	@Bean
 	@ConfigurationProperties(prefix="spring.datasource")
-	public DataSource dataSourceDev() {
+	public DataSource dataSource() {
 		return DataSourceBuilder.create().type(HikariDataSource.class).build();
 	}
-
-	@Profile("test")
-	@Bean
-	@ConfigurationProperties(prefix="spring.datasource")
-	public DataSource dataSourceTest() {
-		return DataSourceBuilder.create().type(HikariDataSource.class).build();
-	}
-
-	@Profile("prod")
-	@Bean
-	@ConfigurationProperties(prefix="spring.datasource")
-	public DataSource dataSourceProd() {
-		return DataSourceBuilder.create().type(HikariDataSource.class).build();
-	}
+	/*
+	 * @Profile("test")
+	 * 
+	 * @Bean
+	 * 
+	 * @ConfigurationProperties(prefix="spring.datasource") public DataSource
+	 * dataSourceTest() { return
+	 * DataSourceBuilder.create().type(HikariDataSource.class).build(); }
+	 * 
+	 * @Profile("prod")
+	 * 
+	 * @Bean
+	 * 
+	 * @ConfigurationProperties(prefix="spring.datasource") public DataSource
+	 * dataSourceProd() { return
+	 * DataSourceBuilder.create().type(HikariDataSource.class).build(); }
+	 */
 
 	@Bean
 	public HibernateTransactionManager transactionManager(SessionFactory sessionFactory) {
@@ -89,23 +93,24 @@ public class SpringHibernateConfig {
 		return properties;
 	}
 
-	private void setDataSourceEnv(LocalSessionFactoryBean factoryBean) {
-		String [] envs = environment.getActiveProfiles();
-		System.out.println("----profile name: " + environment.getProperty("spring.profiles.active"));
-		if(envs == null || envs.length == 0 ) {
-			logger.info("---- No profile is provided ------");
-			throw new RuntimeException("No profile mentioned. Please run application with spring.profiles.active=<Value> | Possible <Value> are dev | test | prod");
-		} else if(APP_ENV_DEV.equalsIgnoreCase(envs[0])) {
-			factoryBean.setDataSource(dataSourceDev());
-			logger.info("---- dev profile is activated------");
-		} if(APP_ENV_TEST.equalsIgnoreCase(envs[0])) {
-			factoryBean.setDataSource(dataSourceTest());
-			logger.info("---- test profile is activated-----");
-		} else if(APP_ENV_PROD.equalsIgnoreCase(envs[0])) {
-			factoryBean.setDataSource(dataSourceProd());
-			logger.info("---- prod profile is activated------");
-		} 
-	}
+	/*
+	 * private void setDataSourceEnv(LocalSessionFactoryBean factoryBean) { String
+	 * [] envs = environment.getActiveProfiles();
+	 * System.out.println("----profile name: " +
+	 * environment.getProperty("spring.profiles.active")); if(envs == null ||
+	 * envs.length == 0 ) { logger.info("---- No profile is provided ------"); throw
+	 * new
+	 * RuntimeException("No profile mentioned. Please run application with spring.profiles.active=<Value> | Possible <Value> are dev | test | prod"
+	 * ); } else if(APP_ENV_DEV.equalsIgnoreCase(envs[0])) {
+	 * factoryBean.setDataSource(dataSourceDev());
+	 * logger.info("---- dev profile is activated------"); }
+	 * if(APP_ENV_TEST.equalsIgnoreCase(envs[0])) {
+	 * factoryBean.setDataSource(dataSourceTest());
+	 * logger.info("---- test profile is activated-----"); } else
+	 * if(APP_ENV_PROD.equalsIgnoreCase(envs[0])) {
+	 * factoryBean.setDataSource(dataSourceProd());
+	 * logger.info("---- prod profile is activated------"); } }
+	 */
 		
 	/*
 	 * @Bean(destroyMethod="") public DataSource jndiDataSource() throws
