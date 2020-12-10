@@ -51,7 +51,7 @@ public class LoginReqProcessor {
 		if (bindingResult.hasErrors()) {
 			return LOGIN;
 		}
-		UserDetailVO userDetailVO = userRoleService.login(loginVO).getBody().getSuccessResponse();
+		UserDetailVO userDetailVO = userRoleService.login(loginVO).getBody().getSuccessResponse().getSuccessResponse();
 		if (!isValidLoginResponse(userDetailVO, modelMap, bindingResult)) {
 		//	return LOGIN;
 			return HOME;

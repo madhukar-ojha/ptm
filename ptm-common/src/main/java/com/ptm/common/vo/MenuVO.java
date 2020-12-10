@@ -6,71 +6,17 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import lombok.Data;
+
+@Data
 public class MenuVO implements Comparable<MenuVO>, Serializable {
+	private static final long serialVersionUID = -4917660946378741179L;
 	private int id;
 	private String menuKey;
 	private String menuName;
 	private String menuUrl;
-	private String menuType;
-	private int serialNo;
+	private int sequenceNo;
 	private Set<SubMenuVO> subMenuList = new HashSet<SubMenuVO>();
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public String getMenuKey() {
-		return menuKey;
-	}
-
-	public void setMenuKey(String menuKey) {
-		this.menuKey = menuKey;
-	}
-
-	public String getMenuName() {
-		return menuName;
-	}
-
-	public void setMenuName(String menuName) {
-		this.menuName = menuName;
-	}
-
-	public String getMenuUrl() {
-		return menuUrl;
-	}
-
-	public void setMenuUrl(String menuUrl) {
-		this.menuUrl = menuUrl;
-	}
-
-	public String getMenuType() {
-		return menuType;
-	}
-
-	public void setMenuType(String menuType) {
-		this.menuType = menuType;
-	}
-
-	public int getSerialNo() {
-		return serialNo;
-	}
-
-	public void setSerialNo(int serialNo) {
-		this.serialNo = serialNo;
-	}
-
-	public Set<SubMenuVO> getSubMenuList() {
-	//	subMenuList = subMenuList.stream().sorted().collect(Collectors.toList());
-		return subMenuList;
-	}
-
-	public void setSubMenuList(Set<SubMenuVO> subMenuList) {
-		this.subMenuList = subMenuList;
-	}
 
 	@Override
 	public int compareTo(MenuVO menuVO) {

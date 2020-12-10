@@ -6,9 +6,11 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @EnableDiscoveryClient
 @SpringBootApplication
+@EnableTransactionManagement
 @ComponentScan(basePackages = "com.ptm.login")
 public class PtmLoginApplication extends SpringBootServletInitializer {
 	

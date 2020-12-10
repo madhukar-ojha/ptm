@@ -7,9 +7,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ptm.common.response.ServiceResponse;
-import com.ptm.common.vo.LoginVO;
-import com.ptm.common.vo.UserDetailVO;
+import com.ptm.common.service.ServiceResponse;
+import com.ptm.login.vo.LoginVO;
 import com.ptm.login.reqprocessor.LoginReqProcessor;
 
 @RestController
@@ -18,12 +17,12 @@ public class LoginController {
 	@Autowired private LoginReqProcessor loginReqProcessor;
 	
 	@PostMapping(value = "/login")
-	public ResponseEntity<ServiceResponse<UserDetailVO, Exception>> login(@RequestBody LoginVO loginVO) {
-		return loginReqProcessor.login(loginVO);
+	public ResponseEntity<ServiceResponse> login(@RequestBody LoginVO request) {
+		return loginReqProcessor.login(request);
 	}
 	
 	@GetMapping(value = "/go")
 	public String go() {
-		return "Fuck u madhu..............";
+		return "tear ur chut madhu..............";
 	}
 }

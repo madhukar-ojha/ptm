@@ -9,6 +9,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+import javax.persistence.EntityManager;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -16,10 +18,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
-import com.ptm.common.feign.client.LoginClient;
-import com.ptm.common.response.ServiceResponse;
+import com.ptm.common.feign.login.LoginClient;
+import com.ptm.common.service.ServiceResponse;
 import com.ptm.common.vo.LoginVO;
-import com.ptm.common.vo.UserDetailVO;
 import com.ptm.main.common.pojo.SearchParams;
 import com.ptm.main.common.pojo.SearchResult;
 import com.ptm.main.dao.LoginDAO;
@@ -32,10 +33,12 @@ public class LoginDAOImpl implements LoginDAO {
 
 	@Autowired private LoginClient loginClient;
 	@Autowired private SessionFactory sessionFactory;
+	@Autowired private EntityManager entityManager; 
 		
 	@Override 
-	public ResponseEntity<ServiceResponse<UserDetailVO, Exception>> login(LoginVO loginVo) {
-		ResponseEntity<ServiceResponse<UserDetailVO, Exception>> response = loginClient.login(loginVo);
+	public ResponseEntity<ServiceResponse> login(LoginVO loginVo) {
+		String data = loginClient.go();
+		ResponseEntity<ServiceResponse> response = loginClient.login(loginVo);
 		return response; 
 	}
 

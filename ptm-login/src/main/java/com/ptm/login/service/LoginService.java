@@ -1,7 +1,7 @@
 package com.ptm.login.service;
 
-import com.ptm.common.vo.LoginVO;
-import com.ptm.common.vo.UserDetailVO;
+import com.ptm.login.vo.LoginVO;
+import com.ptm.login.vo.UserDetailVO;
 
 public interface LoginService {
 	UserDetailVO login(LoginVO loginVO);

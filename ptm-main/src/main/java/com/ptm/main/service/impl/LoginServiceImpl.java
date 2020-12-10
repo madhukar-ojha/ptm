@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.ptm.common.response.ServiceResponse;
+import com.ptm.common.service.ServiceResponse;
 import com.ptm.common.vo.LoginVO;
 import com.ptm.common.vo.SubMenuVO;
 import com.ptm.common.vo.UserDetailVO;
@@ -26,8 +26,8 @@ public class LoginServiceImpl implements LoginService {
 	private LoginDAO loginRoleDAO;
 
 	@Override
-	public ResponseEntity<ServiceResponse<UserDetailVO, Exception>> login(LoginVO loginVO) {
-		ResponseEntity<ServiceResponse<UserDetailVO, Exception>> responseEntity = loginRoleDAO.login(loginVO);
+	public ResponseEntity<ServiceResponse> login(LoginVO loginVO) {
+		ResponseEntity<ServiceResponse> responseEntity = loginRoleDAO.login(loginVO);
 		
 		// preparing home map to display menu on home.jsp
 		Map<String, TreeSet<SubMenuVO>> homeMap = new HashMap<String, TreeSet<SubMenuVO>>();

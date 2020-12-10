@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ptm.common.vo.LoginVO;
-//import com.ptm.common.response.ServiceResponse;
+//import com.ptm.common.service.ServiceResponse;
 import com.ptm.main.reqprocessor.LoginReqProcessor;
 
 @Controller

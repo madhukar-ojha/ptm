@@ -3,8 +3,8 @@ package com.ptm.login.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ptm.common.vo.LoginVO;
-import com.ptm.common.vo.UserDetailVO;
+import com.ptm.login.vo.LoginVO;
+import com.ptm.login.vo.UserDetailVO;
 import com.ptm.login.dao.LoginDAO;
 import com.ptm.login.service.LoginService;
 

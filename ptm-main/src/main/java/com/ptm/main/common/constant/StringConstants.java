@@ -8,7 +8,7 @@ public interface StringConstants {
 
 	// Hibernate config key
 	String HIBERNATE_PROPERTIES_FILE = "hibernate/hibernate.properties";
-	String HIBERNATE_ENTITY_DIR = "com.ptm.main.entity";
+	String HIBERNATE_ENTITY_DIR = "com.ptm.common.entity";
 //	String DATA_SOURCE = "server.tomcat.jndi.datasource";
 
 	// It carries role n privileges value from table 'menu' column 'menuKey'

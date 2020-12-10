@@ -1,0 +1,48 @@
+Hibernate - Generate annotations from property (method) level to field level
+
+Here are the steps:
+
+Allocate "hibernate-tools.jar" by perform a search within your eclipse folder For example, You will find it at C:\eclipse\plugins\org.hibernate.eclipse_3.4.1.xxx\lib\tools
+
+Extract to a temp folder (WinRar can do this) For example, extract to [Your Project]\template
+
+Under [Your Project]\template\pojo folder, create a file named "Ejb3FieldGetAnnotation.ftl"
+
+This file is actually a copy of "Ejb3PropertyGetAnnotation.ftl" but all of words "property" are replaced by "field" because this file will be placed in the a loop that iterates through all fields (instead of properties). I include the content of the file in this post
+
+Remove property-level annotations: In file "PojoPropertyAccessors.ftl", remove or comment out
+
+<#include "GetPropertyAnnotation.ftl"/>
+Add field-level annotations: In file "PojoFields.ftl", add
+
+<#include "Ejb3FieldGetAnnotation.ftl"/>
+${pojo.getFieldModifiers(field)} ... 
+When generate Java entities, select "Use Custom Templates" and specify the template folder. In this case, it will be [Your Project]\template
+
+==================================================================================
+Ejb3FieldGetAnnotation.ftl
+==================================================================================
+
+<#if ejb3>
+<#if pojo.hasIdentifierProperty()>
+<#if field.equals(clazz.identifierProperty)>
+ ${pojo.generateAnnIdGenerator()}
+<#-- if this is the id property (getter)-->
+<#-- explicitly set the column name for this property-->
+</#if>
+</#if>
+
+<#if c2h.isOneToOne(field)>
+${pojo.generateOneToOneAnnotation(field, cfg)}
+<#elseif c2h.isManyToOne(field)>
+${pojo.generateManyToOneAnnotation(field)}
+<#--TODO support optional and targetEntity-->    
+${pojo.generateJoinColumnsAnnotation(field, cfg)}
+<#elseif c2h.isCollection(field)>
+${pojo.generateCollectionAnnotation(field, cfg)}
+<#else>
+${pojo.generateBasicAnnotation(field)}
+${pojo.generateAnnColumnAnnotation(field)}
+</#if>
+</#if>
+

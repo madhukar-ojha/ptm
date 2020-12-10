@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Built-By: asus
+Build-Jdk: 15
+Specification-Title: Hibernate Tools
+Specification-Version: 5.2
+Specification-Vendor: Hibernate
+Implementation-Title: Hibernate Tools
+Implementation-Version: 5.2.10.Final
+Implementation-Vendor-Id: org.hibernate
+Implementation-Vendor: Hibernate
+Created-By: Maven Integration for Eclipse
+Implementation-URL: http://www.hibernate.org/subprojects/tools.html
+Java-Vendor: Oracle Corporation
+Java-Version: 15
+Os-Arch: amd64
+Os-Name: Windows 7
+Os-Version: 6.1
+Scm-Connection: scm:git:git://github.com/hibernate/hibernate-tools.git
+Scm-Revision: 
+Scm-Url: http://github.com/hibernate/hibernate-tools
+

@@ -7,20 +7,21 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
-import com.ptm.common.response.ServiceResponse;
-import com.ptm.common.vo.LoginVO;
-import com.ptm.common.vo.UserDetailVO;
+import com.ptm.common.service.ServiceResponse;
+import com.ptm.common.service.SuccessResponse;
+import com.ptm.login.vo.LoginVO;
+import com.ptm.login.vo.UserDetailVO;
 import com.ptm.login.service.LoginService;
 
 @Component
 public class LoginReqProcessor {
 	
 	@Autowired private LoginService loginService;
-	private ServiceResponse<UserDetailVO, Exception> serviceResponse;
-	
-	public ResponseEntity<ServiceResponse<UserDetailVO, Exception>> login(@Valid LoginVO loginVO) {
+		
+	public <T> ResponseEntity<ServiceResponse> login(@Valid LoginVO request) {
+		LoginVO loginVO = (LoginVO) request;
 		UserDetailVO userDetailVO = loginService.login(loginVO);
-		ServiceResponse<UserDetailVO , Exception> response = new ServiceResponse<>(userDetailVO, null, HttpStatus.OK );
+		ServiceResponse response = new ServiceResponse(new SuccessResponse(userDetailVO), HttpStatus.OK );
 		return ResponseEntity.ok(response);
 	}
 		
